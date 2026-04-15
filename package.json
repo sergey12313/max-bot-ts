@@ -1,6 +1,6 @@
 {
   "name": "max-bot-ts",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "TypeScript framework and SDK for building bots on MAX with polling, webhooks, sessions, and scenes.",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -20,6 +20,14 @@
   ],
   "author": "Sergey",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sergey12313/max-bot-ts.git"
+  },
+  "homepage": "https://github.com/sergey12313/max-bot-ts#readme",
+  "bugs": {
+    "url": "https://github.com/sergey12313/max-bot-ts/issues"
+  },
   "engines": {
     "node": ">=18"
   },
