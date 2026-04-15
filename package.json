@@ -1,0 +1,121 @@
+{
+  "name": "max-bot-ts",
+  "version": "0.1.0",
+  "description": "TypeScript framework and SDK for building bots on MAX with polling, webhooks, sessions, and scenes.",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
+  "sideEffects": false,
+  "keywords": [
+    "max",
+    "bot",
+    "max-bot-ts",
+    "sdk",
+    "framework",
+    "typescript",
+    "webhook",
+    "polling"
+  ],
+  "author": "Sergey",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./core": {
+      "types": "./dist/core/index.d.ts",
+      "default": "./dist/core/index.js"
+    },
+    "./api": {
+      "types": "./dist/api/index.d.ts",
+      "default": "./dist/api/index.js"
+    },
+    "./helpers": {
+      "types": "./dist/helpers/index.d.ts",
+      "default": "./dist/helpers/index.js"
+    },
+    "./network/api": {
+      "types": "./dist/network/api/index.d.ts",
+      "default": "./dist/network/api/index.js"
+    },
+    "./polling": {
+      "types": "./dist/polling/index.d.ts",
+      "default": "./dist/polling/index.js"
+    },
+    "./webhook": {
+      "types": "./dist/webhook/index.d.ts",
+      "default": "./dist/webhook/index.js"
+    },
+    "./session": {
+      "types": "./dist/session/index.d.ts",
+      "default": "./dist/session/index.js"
+    },
+    "./scenes": {
+      "types": "./dist/scenes/index.d.ts",
+      "default": "./dist/scenes/index.js"
+    },
+    "./types": {
+      "types": "./dist/network/api/types/index.d.ts",
+      "default": "./dist/network/api/types/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "typesVersions": {
+    "*": {
+      "core": [
+        "./dist/core/index.d.ts"
+      ],
+      "api": [
+        "./dist/api/index.d.ts"
+      ],
+      "helpers": [
+        "./dist/helpers/index.d.ts"
+      ],
+      "network/api": [
+        "./dist/network/api/index.d.ts"
+      ],
+      "polling": [
+        "./dist/polling/index.d.ts"
+      ],
+      "webhook": [
+        "./dist/webhook/index.d.ts"
+      ],
+      "session": [
+        "./dist/session/index.d.ts"
+      ],
+      "scenes": [
+        "./dist/scenes/index.d.ts"
+      ],
+      "types": [
+        "./dist/network/api/types/index.d.ts"
+      ]
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "clean": "rm -rf dist",
+    "dev": "tsc -p tsconfig.json -w",
+    "build": "npm run clean && tsc -p tsconfig.json",
+    "check": "tsc -p tsconfig.json --noEmit",
+    "test": "node --import tsx --test tests/**/*.test.ts",
+    "prepack": "npm run build"
+  },
+  "dependencies": {
+    "debug": "^4.3.7",
+    "vcf": "^2.1.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.0.0"
+  }
+}
