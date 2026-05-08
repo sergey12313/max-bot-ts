@@ -58,7 +58,7 @@ export class Bot<Ctx extends Context = Context> extends Composer<Ctx> {
     this.botInfo ??= await this.api.getMyInfo() as { username?: string } & Record<string, unknown>;
     this.polling = new Polling(this.api, options?.allowedUpdates);
     debug(`Starting @${this.botInfo?.username ?? 'unknown'}`);
-    await this.polling.loop(this.handleUpdate);
+    await this.polling.loop(this.handleUpdate.bind(this));
   };
 
   stop = (): void => {
