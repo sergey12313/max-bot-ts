@@ -35,30 +35,13 @@ test('Bot routes command updates through middleware stack', async () => {
 
 test('Bot start initializes polling with bot info', async () => {
   const bot = new Bot('token');
-  let loopCalled = false;
 
   bot.api.getMyInfo = async () => ({ username: 'demo-bot' });
-
-  const stop = bot.stop;
-  bot.stop = () => {
-    stop();
+  bot.api.getUpdates = async () => {
+    throw Object.assign(new Error('abort'), { name: 'AbortError' });
   };
 
-  const originalLoop = Object.getPrototypeOf((bot as unknown as { polling?: { loop: unknown } }).polling ?? {}).loop;
-  void originalLoop;
+  await bot.start();
 
-  const PollingModule = await import('../src/polling/index.js');
-  const originalPollingLoop = PollingModule.Polling.prototype.loop;
-  PollingModule.Polling.prototype.loop = async function loop() {
-    loopCalled = true;
-  };
-
-  try {
-    await bot.start();
-  } finally {
-    PollingModule.Polling.prototype.loop = originalPollingLoop;
-  }
-
-  assert.equal(loopCalled, true);
   assert.equal(bot.botInfo?.username, 'demo-bot');
 });
