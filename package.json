@@ -115,7 +115,7 @@
     "dev": "tsc -p tsconfig.json -w",
     "build": "npm run clean && tsc -p tsconfig.json",
     "check": "tsc -p tsconfig.json --noEmit",
-    "test": "node --import tsx --test tests/**/*.test.ts",
+    "test": "node --import tsx --test tests/*.test.ts",
     "prepack": "npm run build"
   },
   "dependencies": {
